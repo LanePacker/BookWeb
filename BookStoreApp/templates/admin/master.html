@@ -1,0 +1,103 @@
+{% import 'admin/layout.html' as layout with context -%} {% import
+'admin/static.html' as admin_static with context %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        {% block title %} {% if admin_view.category %} {{ admin_view.category }} -
+        {% endif %} {{ admin_view.name }} - {{ admin_view.admin.name }} {%
+        endblock %}
+    </title>
+    {% block head_meta %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Mua sách online hay, giá tốt nhất, combo sách hot bán chạy, giảm giá cực khủng cùng với những ưu đãi như miễn phí giao hàng, quà tặng miễn phí, đổi trả nhanh chóng. Đa dạng sản phẩm, đáp ứng mọi nhu cầu.">
+    <meta name="keywords" content="nhà sách online, mua sách hay, sách hot, sách bán chạy, sách giảm giá nhiều">
+    <meta name="author" content="Nguyễn Trung Kiên - Nguyễn Thành Nam - Nguyễn Văn Trường" />
+    {% endblock %} {% block head_css %}
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/attt92bookstore/image/upload/v1647699900/favicon/apple-touch-icon_glyqfy.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/attt92bookstore/image/upload/v1647699906/favicon/favicon-32x32_wssj8e.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/attt92bookstore/image/upload/v1647699904/favicon/favicon-16x16_izcwkh.png">
+    <!-- Bootstrap CSS -->
+    <link
+        href="{{ admin_static.url(filename='bootstrap/bootstrap4/swatch/{swatch}/bootstrap.min.css'.format(swatch=config.get('FLASK_ADMIN_SWATCH', 'default')), v='4.2.1') }}"
+        rel="stylesheet" />
+    {% if config.get('FLASK_ADMIN_SWATCH', 'default') == 'default' %}
+    <link href="{{ admin_static.url(filename='bootstrap/bootstrap4/css/bootstrap.min.css', v='4.2.1') }}"
+        rel="stylesheet" />
+    {% endif %}
+    <link href="{{ admin_static.url(filename='admin/css/bootstrap4/admin.css', v='1.1.1') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" />
+    <!-- Main CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/book-store.css') }}" rel="stylesheet" />
+    {% if admin_view.extra_css %} {% for css_url in admin_view.extra_css %}
+    <link href="{{ css_url }}" rel="stylesheet" />
+    {% endfor %} {% endif %} {% endblock %} {% block head %}
+    <!-- Font -->
+    <script src="/static/plugins/webfont/webfont.min.js"></script>
+    <script src="https://kit.fontawesome.com/9922726b65.js"></script>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ admin_static.url(filename='vendor/moment.min.js', v='2.9.0') }}" type="text/javascript"></script>
+    {% endblock %} {% block head_tail %}{% endblock %}
+</head>
+
+<body data-background-color="dark">
+    <div class="wrapper">
+        {% block header %} {% include 'includes/admin/navigation.html' %} {%
+        include 'includes/admin/sidebar.html' %} {% endblock %} {% block
+        container %}
+        <div class="main-panel">
+            {% block content %} {% block access_control %}{% endblock %} {% block
+            messages %} {{ layout.messages() }} {% endblock %} {# store the jinja2
+            context for form_rules rendering logic #} {% set render_ctx =
+            h.resolve_ctx() %} {% block body %} {% endblock %} {% endblock content
+            %} {% block footer %} {% include 'includes/admin/footer.html' %} {%
+            endblock %}
+        </div>
+        {% endblock %}
+        <!-- setting color - swich mode -->
+        {% include 'includes/admin/configuration.html' %}
+    </div>
+    {% block tail_js %}
+    <script src="{{ admin_static.url(filename='bootstrap/bootstrap4/js/popper.min.js') }}" type="text/javascript">
+    </script>
+    <script src="{{ admin_static.url(filename='bootstrap/bootstrap4/js/bootstrap.min.js', v='4.2.1') }}"
+        type="text/javascript"></script>
+    <script src="{{ admin_static.url(filename='vendor/bootstrap4/util.js', v='4.3.1') }}" type="text/javascript">
+    </script>
+    <script src="{{ admin_static.url(filename='vendor/bootstrap4/dropdown.js', v='4.3.1') }}" type="text/javascript">
+    </script>
+    <script src="{{ admin_static.url(filename='vendor/select2/select2.min.js', v='4.2.1') }}" type="text/javascript">
+    </script>
+    <script
+        src="{{ admin_static.url(filename='vendor/multi-level-dropdowns-bootstrap/bootstrap4-dropdown-ml-hack.js') }}"
+        type="text/javascript"></script>
+    <script src="{{ admin_static.url(filename='admin/js/helpers.js', v='1.0.0') }}" type="text/javascript"></script>
+    <!-- jQuery UI -->
+    <script src="/static/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="/static/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <!-- jQuery Scrollbar -->
+    <script src="/static/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <!-- Cursor -->
+    <script src="{{ url_for('static', filename='plugins/cursor/cursor.js') }}"></script>
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Clinic JS -->
+    <script src="{{ url_for('static', filename='js/admin/book-store.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin/setting-demo.js') }}"></script>
+    {% block script %}{% endblock %} {% if admin_view.extra_js %} {% for js_url
+    in admin_view.extra_js %}
+    <script src="{{ js_url }}" type="text/javascript"></script>
+    {% endfor %} {% endif %} {% endblock %} {% block tail %}{% endblock %}
+</body>
+
+</html>

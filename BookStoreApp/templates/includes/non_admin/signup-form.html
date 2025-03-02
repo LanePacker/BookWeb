@@ -1,0 +1,99 @@
+<div class="modal fade mt-5" id="register-form" data-backdrop="static" tabindex="-1"
+    aria-labelledby="dangky_services-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
+                    <li class="tab login-tab text-center">
+                        <a class=" text-decoration-none">Đăng nhập</a>
+                        <hr>
+                    </li>
+                    <li class="tab register-tab text-center">
+                        <a class="text-decoration-none">Đăng ký</a>
+                        <hr>
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-signup" class="form-signin mt-2">
+                    <div class="form-label-group">
+                        <span class="user-icon"><i class="fas fa-user-nurse" aria-hidden="true"></i></span>
+                        <label>Thông tin cá nhân</label>
+                        <input id="lastName" type="text" class="form-control" placeholder="Nhập họ..." name="last_name"
+                            required autofocus>
+                    </div>
+                    <div class="form-label-group">
+                        <input id="firstName" type="text" class="form-control" placeholder="Nhập tên..."
+                            name="first_name" required autofocus>
+                    </div>
+                    <div class="form-label-group">
+                        <input id="dateOfBirth" type="date" class="form-control" placeholder="Ngày sinh"
+                            name="dateOfBirth" required autofocus>
+                    </div>
+                    <div class="form-label-group">
+                        <span class="user-icon"><i class="fa-solid fa-phone"></i></span>
+                        <label>Thông tin liên lạc</label>
+                        <input id="phoneNumber" type="text" class="form-control" placeholder="Nhập số điện thoại..."
+                            name="phone" required>
+                    </div>
+                    <div class="form-label-group">
+                        <input id="email" type="email" class="form-control" placeholder="Nhập địa chỉ email..."
+                            name="email" required>
+                    </div>
+                    <div class="form-label-group row">
+                        <div class="col-6">
+                            <label for="city">Tỉnh/Thành phố</label>
+                            <select name="city" id="city" style="width:90%; height: 45px; padding:0 7px;"
+                                onclick="setDistricts()"></select>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="district">Quận/Huyện</label>
+                            <select name="district" id="district"
+                                style="width:90%; height: 45px; padding:0 7px;"></select>
+                        </div>
+                    </div>
+                    <div class="form-label-group">
+                        <input id="address" type="text" class="form-control" placeholder="Nhập địa chỉ..."
+                            name="address" required autofocus>
+                    </div>
+                    <div class="form-label-group">
+                        <span class="user-icon"><i class="fa-solid fa-user-lock"></i></span>
+                        <label>Thông tin tài khoản</label>
+                        <input id="username" type="text" class="form-control" placeholder="Nhập tên tài khoản..."
+                            name="username" required autofocus>
+                    </div>
+                    <div class="form-label-group">
+                        <input id="inputPassword" type="password" class="form-control" placeholder="Nhập mật khẩu..."
+                            name="password" required>
+                    </div>
+                    <div class="form-label-group mb-4">
+                        <input id="confirmPassword" type="password" class="form-control" name="confirm_password"
+                            placeholder="Nhập lại mật khẩu..." required>
+                    </div>
+                    <div id="confirmEmail" class="form-label-group mb-4" style="display: none">
+                        <div class="text-danger" style="font-size:12px">*Vui lòng kiểm tra email</div>
+                        <div class="d-flex justify-content-center mt-3">
+                            <input id="numberEmail" type="text" style="height: 36px;"
+                                onkeyup="setCheckNumber(this,event)" placeholder="Nhập mã xác thực...">
+                            <button class="btn-danger" style="margin-left:5px; height: 36px;width: 70px;"
+                                onclick="setConfirmEmail()" type="button">Gửi lại</button>
+                        </div>
+                    </div>
+                    <button id="btn-sign-up" class="btn btn-lg btn-block btn-signin text-uppercase text-white mt-3"
+                        type="submit" onclick="setTimeout('setConfirmEmail()', 10)">Đăng
+                        ký</button>
+                    <hr class="mt-3 mb-2">
+                    <div class="custom-control custom-checkbox p-0">
+                        <p class="text-center">Bằng việc đăng ký, bạn đã đồng ý với BookStore về</p>
+                        <a href="#" class="text-decoration-none text-center" style="color: #F5A623">Điều khoản dịch
+                            vụ & Chính sách bảo mật</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

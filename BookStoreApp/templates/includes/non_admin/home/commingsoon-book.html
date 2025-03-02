@@ -1,0 +1,52 @@
+<section class="commingsoon-book mt-4">
+    <div class="container">
+        <div class="row">
+            <!--header-->
+            <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-light">
+                <h2 class="header text-uppercase" style="font-weight: 400;">SÁCH SẮP PHÁT HÀNH / ĐẶT TRƯỚC</h2>
+                <a href="/bao-tri" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+            </div>
+        </div>
+        <div class="p-2 bg-white">
+            <div class="block-product">
+                {% if coming_books|length == 0 %}
+                <div class="cart-empty-content w-100 text-center justify-content-center">
+                    <img src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679833/icon%20-%20payment%20-%20banner/shopping-cart-not-product_pwdt7a.png"
+                        alt="shopping-cart-not-product" style="margin: auto;">
+                    <p>Đang cập nhật sách !!!</p>
+                </div>
+                {% else %}
+                {% for coming_book in coming_books %}
+                <div class="card">
+                    <a href="/chi-tiet-sach?book_id={{coming_book['book_id']}}" class="product"
+                        style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
+                        title="{{coming_book['book_name']}}">
+                        <img class="card-img-top picture" src="{{coming_book['book_image']}}"
+                            alt="{{coming_book['book_name']}}">
+                        <div class="card-body content-product mt-3">
+                            <h3 class="card-title book-name">{{coming_book['book_name']}}</h3>
+                            <small class="author text-muted">{{coming_book['book_author']}}</small>
+                            <div class="price d-flex align-items-baseline">
+                                <div class="new-price">{{coming_book['book_sale_price']}} ₫</div>
+                                <div class="old-price text-muted">{{coming_book['book_price']}} ₫</div>
+                                <div class="sale">-{{coming_book['sale_percent']}}%</div>
+                            </div>
+                            <div class="review">
+                                <ul class="d-flex" style="list-style: none;">
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li class="active"><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><span class="text-muted">0 nhận xét</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

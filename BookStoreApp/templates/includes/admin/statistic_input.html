@@ -1,0 +1,54 @@
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-head-row">
+                <div class="card-title">Lựa chọn thống kê</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="stats-choice">
+                <form class="d-flex flex-wrap">
+                    <div class="form-group">
+                        <label for="statisticType">Loại thống kê</label>
+                        <select name="statisticType" id="statisticType">
+                            {% for s in selections['statistic_type'] %}
+                                <option value={{ s['type'] }}>{{ s['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-group ml--10" id="bookNameInput">
+                            <label for="bookName">Tên sách</label>
+                            <input type="text" placeholder="Nhập tên sách" id='bookName' style="padding-left:15px"/>
+                            <div id="bookNameResultInput" class="show-hint"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="chartType">Loại biểu đồ</label>
+                        <select name="chartType" id="chartType">
+                            {% for s in selections['chart_type'] %}
+                                <option value={{ s['type'] }}>{{ s['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="statisticCondition">Điều kiện thống kê</label>
+                        <select name="statisticCondition" id="statisticCondition">
+                            {% for s in selections['statistic_condition'] %}
+                                <option value={{ s['type'] }}>{{ s['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-group ml--10" id="timeInput">
+                            <div class="form-grou p-0">
+                                <label for="leftTime">Bắt đầu</label>
+                                <select name="leftTime" id="leftTime"></select>
+                            </div>
+                            <div class="form-group p-0 pl-40">
+                                <label for="rightTime">Kết thúc</label>
+                                <select name="rightTime" id="rightTime"></select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

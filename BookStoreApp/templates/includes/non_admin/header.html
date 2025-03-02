@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md bg-white navbar-light">
+    <div class="container">
+        <!-- logo  -->
+        <a class="navbar-brand" href="/" style="color: #CF111A;"><b>BookStore</b> OU</a>
+
+        <!-- navbar-toggler  -->
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse mt-2" id="collapsibleNavId">
+            <!-- form tìm kiếm  -->
+            <form class="form-inline mx-auto">
+                <div class="input-group input-search">
+                    <input type="text" class="form-control" id="bookTitleInput" aria-label="Small" placeholder="Nhập sách cần tìm kiếm...">
+                    <div class="input-group-append">
+                        <button type="button" class="btn" style="background-color: #CF111A; color: white;" id="bookSearchBtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
+            <ul class="navbar-nav ml-auto nav-right-mobile">
+                <div class="dropdown d-flex">
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item account" type="button" class="btn">
+                        <a href="#" class="btn btn-secondary rounded-circle">
+                            <i class="fa fa-user" style="color: #ff6f0e;"></i>
+                        </a>
+                    </li>
+                    <div class="info-logout">
+                        <a class="font-weight-bold nav-link username text-success" href="/tai-khoan">{{current_user.username}}</a>
+                        <a class="font-weight-bold nav-link logout text-danger" href="/client/api/log-out">Thoát <i
+                                class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                    {%else%}
+                    <li class="nav-item account" type="button" class="btn dropdown" data-toggle="dropdown">
+                        <a href="#" class="btn btn-secondary rounded-circle">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item btn-login text-center my-2" href="#" data-toggle="modal"
+                            data-target="#login-form">Đăng nhập</a>
+                        <a class="dropdown-item btn-register text-center mb-2" href="#" data-toggle="modal"
+                            data-target="#register-form">Đăng ký</a>
+                    </div>
+                    {% endif %}
+                </div>
+                <li class="nav-item cart">
+                    <a href="/gio-hang" class="btn btn-secondary rounded-circle">
+                        <i class="fa fa-shopping-cart"></i>
+                        <div class="cart-amount" id="cartDetailAmount"></div>
+                    </a>
+                    <a class="nav-link text-dark cart text-uppercase" href="/gio-hang" style="display:inline-block"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,35 @@
+{% extends 'non_admin/layout.html'%}
+
+
+{% block title %}
+<title>BookStore - Mua sách trực tuyến giá rẻ nhất</title>
+{% endblock %}
+
+{% block body %}
+{{super()}}
+<!-- content categories + banner slider start -->
+{% include 'includes/non_admin/content-categories.html' %}
+<!-- content categories + banner slider end -->
+
+<!-- sale start -->
+{% include 'includes/non_admin/sale.html' %}
+<!-- sale end -->
+
+<!-- new book start -->
+{% include 'includes/non_admin/home/new-book.html' %}
+<!-- new book end -->
+
+<!-- hot book start -->
+{% include 'includes/non_admin/home/hot-book.html' %}
+<!-- hot book end -->
+
+<!-- comming soon book start -->
+{% include 'includes/non_admin/home/commingsoon-book.html' %}
+<!-- comming soon book end -->
+
+<!-- recommend book start -->
+{% include 'includes/non_admin/home/recommend-book.html' %}
+<!-- recommend book end -->
+{% endblock %}
+
+

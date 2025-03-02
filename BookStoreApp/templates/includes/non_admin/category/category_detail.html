@@ -1,0 +1,95 @@
+<!-- breadcrumb  -->
+<section class="breadcrumbbar">
+    <div class="container">
+        <ol class="breadcrumb mb-0 p-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item active">
+                <a href="#">{{category_name['category_name']}}</a>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- thể loại sách: kinh tế chính trị nhân vật bài học kinh doanh ( từng ô vuông) -->
+<section class="page-content my-3">
+    <div class="container">
+        <div>
+            <h1 class="header text-uppercase">{{category_name['category_name']}}</h1>
+        </div>
+        <div class="category-book mt-4">
+            <ul class="list-unstyled d-flex">
+                {% for top_selling_book in top_selling_books%}
+                <li>
+                    <a href="/chi-tiet-sach?book_id={{top_selling_book['book_id']}}" class="text-decoration-none w-100">
+                        <div class="img text-center">
+                            <img src="{{top_selling_book['book_image']}}" alt="{{top_selling_book['book_name']}}" />
+                        </div>
+                        <p class="name text-center">{{top_selling_book['book_name']}}</p>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- khối sản phẩm  -->
+<section class="content my-4">
+    <div class="container">
+        <div class="bg-white" style="width: 100%">
+            <!-- header của khối sản phẩm : tag(tác giả), bộ lọc và sắp xếp  -->
+            <div class="header-block-product  d-flex">
+                <div class="tag">
+                    <label>Tác giả nổi bật:</label>
+                    <a href="#">Tất cả</a>
+                    {%for book_in_category in books_in_category%}
+                    <a href="#" data-author=".{{book_in_category['book_id']}}">{{book_in_category['book_author']}}</a>
+                    {%endfor%}
+                </div>
+
+            </div>
+
+            <!-- các sản phẩm  -->
+            <div class="items">
+                <div class="row">
+                    {% for book_in_category in books_in_category %}
+                    <div class="col-lg-3 col-md-4 col-xs-6 item {{book_in_category['book_id']}}">
+                        <div class="card">
+                            <a href="/chi-tiet-sach?book_id={{book_in_category['book_id']}}" class="product" style="text-decoration: none; color: black;"
+                                data-toggle="tooltip" data-placement="bottom" title="{{book_in_category['book_name']}}">
+                                <img class="card-img-top picture"
+                                    src="{{book_in_category['book_image']}}"
+                                    alt="{{book_in_category['book_name']}}">
+                                <div class="card-body content-product mt-3">
+                                    <h3 class="card-title book-name">{{book_in_category['book_name']}}</h3>
+                                    <small class="author text-muted">{{book_in_category['book_author']}}</small>
+                                    <div class="price d-flex align-items-baseline">
+                                        <div class="new-price">{{book_in_category['book_sale_price']}} ₫</div>
+                                        <div class="old-price text-muted">{{book_in_category['book_price']}} ₫</div>
+                                        <div class="sale">-{{book_in_category['sale_percent']}}%</div>
+                                    </div>
+                                    <div class="review">
+                                        <ul class="d-flex" style="list-style: none;">
+                                            <li class="active"><i class="fa fa-star"></i></li>
+                                            <li class="active"><i class="fa fa-star"></i></li>
+                                            <li class="active"><i class="fa fa-star"></i></li>
+                                            <li class="active"><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><span class="text-muted">0 nhận xét</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!--het khoi san pham-->
+        </div>
+        <!--het div noidung-->
+    </div>
+    <!--het container-->
+</section>
+<!--het _1khoi-->

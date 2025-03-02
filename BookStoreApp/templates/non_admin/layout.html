@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    {% block title %}
+    {% endblock %}
+
+    {% block head_meta %}
+    <meta name="description"
+        content="Mua sách online hay, giá tốt nhất, combo sách hot bán chạy, giảm giá cực khủng cùng với những ưu đãi như miễn phí giao hàng, quà tặng miễn phí, đổi trả nhanh chóng. Đa dạng sản phẩm, đáp ứng mọi nhu cầu.">
+    <meta name="keywords" content="nhà sách online, mua sách hay, sách hot, sách bán chạy, sách giảm giá nhiều">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock %}
+
+    {% block head %}
+    <!-- BS4 & Jquery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/fe78fbcdb4.js" crossorigin="anonymous"></script>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="../static/plugins/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../static/plugins/slick/slick-theme.css" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/attt92bookstore/image/upload/v1647699900/favicon/apple-touch-icon_glyqfy.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/attt92bookstore/image/upload/v1647699906/favicon/favicon-32x32_wssj8e.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/attt92bookstore/image/upload/v1647699904/favicon/favicon-16x16_izcwkh.png">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../static/plugins/cursor/cursor.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- Font -->
+    <script src="/static/plugins/webfont/webfont.min.js"></script>
+    <script src="https://kit.fontawesome.com/9922726b65.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+        crossorigin="anonymous"></script>
+    {% endblock %}
+
+</head>
+
+<body>
+    {% block header %}
+        <!-- header start -->
+        {% include 'includes/non_admin/header.html' %}
+        <!-- header end -->
+
+        <!-- signin form start -->
+        {% include 'includes/non_admin/signin-form.html' %}
+        <!-- signin form end -->
+
+        <!-- signup form start -->
+        {% include 'includes/non_admin/signup-form.html' %}
+        <!-- signup form end -->
+
+        <!-- banner title (category and contact) start -->
+        {% include 'includes/non_admin/banner-title.html' %}
+        <!-- banner title (category and contact) end -->
+
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+    {% block services %}
+        <!-- services start -->
+        {% include 'includes/non_admin/services.html' %}
+        <!-- services end -->
+    {% endblock %}
+
+    {% block footer %}
+        <!-- footer start -->
+        {% include 'includes/non_admin/footer.html' %}
+        <!-- footer end -->
+    {% endblock %}
+
+    {% block script %}
+        {% include 'includes/non_admin/scripts.html' %}
+    {% endblock %}
+</body>
+
+</html>

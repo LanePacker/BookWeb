@@ -1,0 +1,22 @@
+{% extends 'non_admin/layout.html'%}
+
+
+{% block title %}
+<title>Chi tiết sách - Mua sách trực tuyến giá rẻ nhất</title>
+{% endblock %}
+
+
+{% block head%}
+{{super()}}
+<script src="{{url_for('static', filename='js/non_admin/book_detail.js')}}"></script>
+{% endblock %}
+
+
+{% block body %}
+{{super()}}
+
+    <!-- detail book start -->
+    {% include 'includes/non_admin/book-detail/book.html' %}
+    <!-- detail book end -->
+
+{% endblock %}

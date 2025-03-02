@@ -1,0 +1,167 @@
+<div class="content">
+    <div class="panel-header bg-primary-gradient">
+        <div class="page-inner py-5">
+            <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                <div>
+                    <h2 class="text-white pb-2 fw-bold">Trang tổng quan</h2>
+                </div>
+                <div class="ml-md-auto py-2 py-md-0">
+                    <a href="/admin/bookmodel" class="btn btn-white btn-border btn-round mr-2">Quản lý sách</a>
+                    <a href="/admin/customermodel" class="btn btn-secondary btn-round">Quản lý khách hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-inner mt--5">
+        <div class="row mt--2">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Thống kê tổng quan</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số sách:</span>
+                                        <span id="bookAmount"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số khách hàng:</span>
+                                        <span id="customerAmount"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số loại sách:</span>
+                                        <span id="categoryAmount"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số nhà xuất bản:</span>
+                                        <span id="manufacturerAmount"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số đơn hàng đã thanh toán</span>
+                                        <span id="cartAmount"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số lượng đánh giá khách hàng</span>
+                                        <span id="commentAmount"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="owl-intro" class="owl-carousel owl-theme owl-img-responsive">
+                            <div class="item">
+                                <img class="img-fluid"
+                                    src="https://res.cloudinary.com/ouproject/image/upload/v1641134464/img/banner_homepage/banner3_flxfi4.jpg"
+                                    alt="Owl Image" />
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid"
+                                    src="https://res.cloudinary.com/ouproject/image/upload/v1641134463/img/banner_homepage/banner1_xn8axk.png"
+                                    alt="Owl Image" />
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid"
+                                    src="https://res.cloudinary.com/ouproject/image/upload/v1641134463/img/banner_homepage/banner2_q597x4.png"
+                                    alt="Owl Image" />
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid"
+                                    src="https://res.cloudinary.com/ouproject/image/upload/v1641134462/img/banner_homepage/banner4_u1uxt8.jpg"
+                                    alt="Owl Image" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card full-height">
+                    <div class="card-header">
+                        <div class="card-title">Tổng doanh thu</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row py-3">
+                            <div class="col-md-4 d-flex flex-column justify-content-around">
+                                <div>
+                                    <span class="fw-bold text-success op-8">Doanh thu hôm nay</span>
+                                    <p class="fw-bold" id="todayRevenue"></p>
+                                </div>
+                                <div>
+                                    <span class="fw-bold text-danger op-8">Doanh thu hôm qua</span>
+                                    <p class="fw-bold" id="yesterdayRevenue"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="chart-container">
+                                    <canvas id="totalIncomeChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-head-row">
+                            <div class="card-title">
+                                Thống kê số lượng đơn hàng trong tháng <span id="month"></span>/<span id=year></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container" style="min-height: 250px;">
+                            <canvas id="amountCartChart"></canvas>
+                        </div>
+                        <div id="myChartLegend"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card col-12">
+                <div class="card-header">
+                    <div class="card-title">Danh sách top 15 sách chạy nhất</div>
+                </div>
+                <div class="row card-body">
+                    <div class="col-md-5">
+                        <div class="pb-0 stats-scroll scrollbar scrollbar-inner" id="topBookTable">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="pull-in chart-container">
+                            <canvas id="topBookChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

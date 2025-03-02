@@ -1,0 +1,43 @@
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-head-row">
+                <div class="card-title">Lựa chọn báo cáo</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="stats-choice">
+                <form class="d-flex flex-wrap">
+                    <div class="form-group">
+                        <label for="reportType">Loại báo cáo</label>
+                        <select name="reportType" id="reportType">
+                            {% for s in selections['report_type'] %}
+                                <option value={{ s['type'] }}>{{ s['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportCondition">Điều kiện báo cáo</label>
+                        <select name="reportCondition" id="reportCondition">
+                            {% for s in selections['report_condition'] %}
+                                <option value={{ s['type'] }}>{{ s['name'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group" id='monthSelection'>
+                        <label for='monthInput'>Tháng</label>
+                        <select name='monthInput' id='monthInput'></select>
+                    </div>
+                    <div class="form-group" id='quarterSelection'>
+                        <label for='quarterInput'>Quý</label>
+                        <select name='quarterInput' id='quarterInput'></select>
+                    </div>
+                    <div class="form-group" id='yearSelection'>
+                        <label for='yearInput'>Năm</label>
+                        <select name='yearInput' id='yearInput'></select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{% extends 'non_admin/layout.html'%}
+
+
+{% block title %}
+<title>Giỏ hàng - Mua sách trực tuyến giá rẻ nhất</title>
+{% endblock %}
+
+
+{% block body %}
+{{super()}}
+
+<section class="content my-4">
+    <div class="container">
+        <div class="cart-page bg-white">
+            <div class="row">
+                <div class="col-12 cart-empty">
+                    <div class="py-3">
+                        <div class="cart-empty-content w-100 text-center justify-content-center">
+                            <img src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679833/icon%20-%20payment%20-%20banner/shopping-cart-not-product_pwdt7a.png"
+                                alt="shopping-cart-not-product">
+                            <p class="mt-2">Chức năng đang trong quá trình hoàn thiện. Xin vui lòng quay lại sau !!!</p>
+                            <a href="/" class="btn buy-more mb-3 mt-3">Về trang chủ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

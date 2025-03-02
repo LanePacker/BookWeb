@@ -1,0 +1,27 @@
+{
+  "report_type": [
+      {
+        "type": "revenue",
+        "name": "Báo cáo doanh thu"
+      },
+
+      {
+        "type": "frequently_book_selling",
+        "name": "Báo cáo tần suất bán sách"
+      }
+  ],
+  "report_condition": [
+    {
+      "type": "month_report",
+      "name": "Báo cáo theo tháng"
+    },
+    {
+      "type": "quarter_report",
+      "name": "Báo cáo theo quý"
+    },
+    {
+      "type": "year_report",
+      "name": "Báo cáo theo năm"
+    }
+  ]
+}

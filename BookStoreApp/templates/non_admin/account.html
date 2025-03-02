@@ -1,0 +1,29 @@
+{% extends 'non_admin/layout.html'%}
+
+
+{% block title %}
+<title>Tài khoản - Mua sách trực tuyến giá rẻ nhất</title>
+{% endblock %}
+
+
+{% block head %}
+{{super()}}
+   {% if current_user.is_authenticated %}
+      <script src="{{ url_for('static', filename='js/non_admin/account_info.js') }}"></script>
+   <!-- Account cart detail -->
+   <script src="{{ url_for('static', filename='js/non_admin/cart_detail_of_account.js') }}"></script>
+   {% endif %}
+{% endblock %}
+
+
+{% block body %}
+{{super()}}
+   <!-- content categories + banner slider start -->
+   {% include 'includes/non_admin/content-categories.html' %}
+   <!-- content categories + banner slider end -->
+
+   <!-- cart UI start -->
+   {% include 'includes/non_admin/account/account.html' %}
+   <!-- cart UI end -->
+
+{% endblock %}

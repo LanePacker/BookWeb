@@ -1,0 +1,47 @@
+<div class="modal fade mt-5" id="login-form" data-backdrop="static" tabindex="-1"
+    aria-labelledby="dangnhap_services-title" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <ul class="tabs d-flex justify-content-around list-unstyled mb-0">
+                    <li class="tab login-tab text-center">
+                        <a class=" text-decoration-none">Đăng nhập</a>
+                        <hr>
+                    </li>
+                    <li class="tab register-tab text-center">
+                        <a class="text-decoration-none">Đăng ký</a>
+                        <hr>
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-signin" class="form-signin mt-2">
+                    <div class="form-label-group">
+                        <span class="user-icon"><i class="fas fa-user-nurse" aria-hidden="true"></i></span>
+                        <label for="usernameSignIn">Tên đăng nhập</label>
+                        <input id="usernameSignIn" type="text" class="form-control" placeholder="Nhập tên đăng nhập..."
+                            name="username" required autofocus>
+                    </div>
+
+                    <div class="form-label-group">
+                        <span class="password-icon"> <i class="fas fa-key" aria-hidden="true"></i></span>
+                        <label for="passwordSignIn">Mật khẩu</label>
+                        <input id="passwordSignIn" type="password" class="form-control" placeholder="Nhập mật khẩu...."
+                            name="password" required>
+                        <div class="show-password">
+                            <i class="far fa-eye" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="form-group btn-center"><a
+                            class="btn btn-lg btn-block btn-signin text-uppercase text-white" id="btnSignIn">Đăng
+                            nhập</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

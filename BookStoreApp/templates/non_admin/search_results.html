@@ -1,0 +1,35 @@
+{% extends 'non_admin/layout.html' %}
+
+{% block title %}
+<title>Kết quả tìm kiếm - BookStore</title>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">Kết quả tìm kiếm cho: "{{ query }}"</h1>
+
+    {% if books %}
+        <div class="row">
+            {% for book in books %}
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100">
+                        <a href="/chi-tiet-sach?book_id={{ book.book_id }}" class="product" style="text-decoration: none; color: black;">
+                            <img src="{{ book.book_image }}" class="card-img-top" alt="{{ book.book_name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ book.book_name }}</h5>
+                                <p class="card-text">Tác giả: {{ book.manufacturer_name }}</p>
+                                <p class="card-text">Giá: {{ book.book_price }} ₫</p>
+                                <p class="card-text">Danh mục: {{ book.category_name }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            Không tìm thấy sách nào.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

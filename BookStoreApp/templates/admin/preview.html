@@ -1,0 +1,85 @@
+{% extends 'admin/master.html'%}
+
+
+{% block head%}
+{{super()}}
+<script src="{{url_for('static', filename='js/admin/preview.js')}}"></script>
+{% endblock%}
+
+
+{% block body %}
+{{super()}}
+<div class="content">
+    <div class="panel-header bg-primary-gradient">
+        <div class="page-inner py-5">
+            <div>
+                <h2 class="text-white pb-2 fw-bold">Xem trước sách</h2>
+                <h5 class="text-white op-7 mb-2">Quản lý Nhà sách</h5>
+            </div>
+        </div>
+    </div>
+    <div class="page-inner mt--5">
+        <div class="row mt--2 justify-content-center">
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Tìm kiếm sách</div>
+                    </div>
+                    <div class="card-body">
+                        <form class="">
+                            <div class="form-group form-show-validation row">
+                                <label for="bookName" class="col-lg-3 col-md-3 col-sm-4 mt-sm-2 text-center">Tên
+                                    sách</label>
+                                <div class="col-lg-6 col-md-9 col-sm-8" id="bookNameInput">
+                                    <input type="text" name="bookName" placeholder="Nhập tên sách" id="bookName"
+                                        style="width: 100%; padding-left:15px;" />
+                                    <div id="bookNameResultInput" class="show-hint preview-book"></div>
+                                </div>
+                                <div class="col-lg-3 col-12 text-center btn-search">
+                                    <button id="searchBookName" type="button"
+                                        class="btn btn-secondary my-2 my-sm-0 ml-2">Tìm
+                                        kiếm</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Kết quả tìm kiếm</div>
+                    </div>
+                    <div class="card-body">
+                        <div id="bookInfo"></div>
+                        <div id="previewInfo" style="margin-top: -30px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" id="previewAddition">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Thêm thông tin các bản xem trước của sách</div>
+                    </div>
+                    <form action="/admin/previewview/api/add-preview" enctype="multipart/form-data" method="post">
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label for="newPreview">Có thể chọn nhiều file trong 1 lần chọn</label>
+                                <input type="file" name="new_preview" class="form-control" id="newPreview" multiple style="padding: 20px;">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="book_name" class="form-control" id="bookNameData" hidden>
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-primary my-2 my-sm-0 ml-2">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

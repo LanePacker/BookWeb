@@ -1,0 +1,31 @@
+<section class="recommend-book bg-white mt-4">
+    <div class="container">
+        <div class="row py-2">
+            <!--header-->
+            <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
+                <h2 class="header text-uppercase" style="font-weight: 400;">SÁCH HAY NÊN ĐỌC</h2>
+                <a href="/bao-tri" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+            </div>
+        </div>
+        <div class="block-product" style="padding-bottom: 2rem;">
+            {% for recommend_book in recommend_books %}
+            <div class="card ml-3">
+                <a href="/chi-tiet-sach?book_id={{recommend_book['book_id']}}" class="product"
+                    style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
+                    title="{{recommend_book['book_name']}}">
+                    <img class="card-img-top picture" src="{{recommend_book['book_image']}}"
+                        alt="{{recommend_book['book_name']}}">
+                    <div class="card-body content-product mt-3">
+                        <h3 class="card-title book-name">{{recommend_book['book_name']}}</h3>
+                        <small class="thoigian text-muted">Ngày đăng:
+                            {{recommend_book['publish_date']}}</small>
+                        <div><a class="detail" href="/chi-tiet-sach?book_id={{recommend_book['book_id']}}"><i
+                                    class="fa-solid fa-arrow-right mr-2"></i>Xem
+                                chi tiết</a></div>
+                    </div>
+                </a>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</section>

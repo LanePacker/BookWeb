@@ -1,0 +1,25 @@
+{% extends 'non_admin/layout.html'%}
+
+
+{% block title %}
+<title>Giỏ hàng - Mua sách trực tuyến giá rẻ nhất</title>
+{% endblock %}
+
+
+{% block head %}
+{{super()}}
+<script src="{{url_for('static', filename='js/non_admin/cart.js')}}"></script>
+{% endblock %}
+
+
+{% block body %}
+{{super()}}
+   <!-- content categories + banner slider start -->
+   {% include 'includes/non_admin/content-categories.html' %}
+   <!-- content categories + banner slider end -->
+
+   <!-- cart UI start -->
+   {% include 'includes/non_admin/cart/cart-component.html' %}
+   <!-- cart UI end -->
+
+{% endblock %}
