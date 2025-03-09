@@ -1,13 +1,11 @@
-{% extends 'admin/master.html'%}
+{% extends 'admin/master.html' %}
 
-
-{% block head%}
-{{super()}}
-{% endblock%}
-
+{% block head %}
+{{ super() }}
+{% endblock %}
 
 {% block body %}
-{{super()}}
+{{ super() }}
 <div class="content">
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
@@ -31,15 +29,13 @@
                             <form class="d-flex flex-wrap align-items-center justify-content-center">
                                 <div class="form-group">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="input-asc" name="gender" class="custom-control-input"
-                                            checked="">
+                                        <input type="radio" id="input-asc" name="sortOrder" class="custom-control-input" checked>
                                         <label class="custom-control-label" for="input-asc">Sắp xếp tăng dần</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" id="input-desc" name="gender" class="custom-control-input"
-                                            checked="">
+                                        <input type="radio" id="input-desc" name="sortOrder" class="custom-control-input">
                                         <label class="custom-control-label" for="input-desc">Sắp xếp giảm dần</label>
                                     </div>
                                 </div>
@@ -53,8 +49,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" class="btn btn-secondary my-2 my-sm-0 ml-2" onclick="getCartData()">Tìm
-                                        kiếm</button>
+                                    <button type="button" class="btn btn-secondary my-2 my-sm-0 ml-2" onclick="getCartData()">Tìm kiếm</button>
                                 </div>
                             </form>
                         </div>
@@ -63,14 +58,15 @@
             </div>
         </div>
         <div id="cart-admin" class="row">
-          
-            
+            <!-- Các mục giỏ hàng sẽ được hiển thị ở đây -->
+        </div>
+        <div id="no-cart-message" class="text-center" style="display: none;">
+            <h5>Không có mục nào trong giỏ hàng.</h5>
         </div>
     </div>
-
 </div>
-{% block script %}
 
+{% block script %}
 <!-- Main JS -->
 <script src="{{ url_for('static', filename='js/admin/admin_cart.js') }}"></script>
 {% endblock %}
