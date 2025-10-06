@@ -9,25 +9,6 @@ from twilio.rest import Client
 
 app = Flask(__name__)
 
-# thông tin database
-USERNAME_DB = 'root'
-PASSWORD_DB = 'tuoide0961872374'
-NAME_DB = 'BookStore'
-IP_DB = 'localhost'
-
-# Thông tin cloudinary
-CLOUD_NAME = 'attt92bookstore'
-API_KEY = '718111144413712'
-API_SECRET = 'QBWH4PeSsQKyl4Elx1alQiWEhzs'
-
-# Cấu hình flask
-app.config['SQLALCHEMY_DATABASE_URI'] = \
-    str.format(f'mysql+pymysql://{USERNAME_DB}:{PASSWORD_DB}@{IP_DB}/{NAME_DB}?charset=utf8mb4')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['FLASK_ADMIN_FLUID_LAYOUT'] = True
-app.config['SQLALCHEMY_ECHO'] = True
-app.secret_key = b'21137afa59a4dd08b708dcf106c724f9'
-
 # Khởi tạo cấu hình
 db = SQLAlchemy(app=app)
 admin = Admin(app=app, name='Cửa hàng sách', template_mode='bootstrap4',
@@ -38,12 +19,6 @@ cloudinary.config(cloud_name=CLOUD_NAME,
                   api_secret=API_SECRET)
 
 
-
-# thanh toán momo
-API_URL = 'https://test-payment.momo.vn/v2/gateway/api/create'
-SECRET_KEY = 'NsyubDwquURwV46FycWCxdCqYsB8HUEd'
-ACCESS_KEY = 'zvdfoutMBqzlawgZ'
-PARTNER_CODE = 'MOMOO5NG20220325'
 
 # Import model database
 from model.book_model import BookModel
